@@ -29,7 +29,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: ghcr.io/${{ github.repository }}:dev
+        tags: ghcr.io/${{ github.repository | toLower }}:dev
 
     - name: Build and push latest image on release
       if: github.event_name == 'release' && github.event.action == 'published'
@@ -37,4 +37,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: ghcr.io/${{ github.repository }}:latest
+        tags: ghcr.io/${{ github.repository | toLower }}:latest
